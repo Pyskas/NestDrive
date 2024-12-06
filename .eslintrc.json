@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "next/core-web-vitals",               // Стандартные правила для Next.js
+    "next/typescript",                    // Правила для TypeScript в Next.js
+    "standard",                            // Стандартные правила JavaScript
+    "plugin:tailwindcss/recommended",      // Рекомендуемые правила для Tailwind CSS
+    "prettier"                             // Отключает конфликты между Prettier и ESLint
+  ],
+  "plugins": ["tailwindcss", "prettier"],    // Подключаем плагины для Tailwind и Prettier
+  "rules": {
+    "prettier/prettier": ["error"],         // Применение Prettier как ошибки
+    "tailwindcss/classnames-order": "warn", // Оповещение о порядке классов Tailwind
+    "tailwindcss/no-custom-classname": "off" // Отключение правил для кастомных классов (можно оставить, если хотите)
+  },
+  "env": {
+    "browser": true,                       // Определяет, что код будет работать в браузере
+    "node": true                           // Определяет, что код будет работать в Node.js
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"           // Указываем проект TypeScript для ESLint
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "warn" // Режим предупреждений для неиспользуемых переменных в TypeScript
+      }
+    }
+  ]
+}
+
